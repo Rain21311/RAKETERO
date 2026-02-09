@@ -1,0 +1,809 @@
+.jobs-GIG {
+  background-color: #f8f7f6;
+  overflow: hidden;
+  width: 100%;
+  min-width: 1440px;
+  min-height: 4910px;
+  position: relative;
+}
+
+.jobs-GIG .rectangle {
+  position: absolute;
+  top: 107px;
+  left: -2px;
+  width: 1442px;
+  height: 335px;
+  border-radius: 0px 0px 25px 25px;
+  background: linear-gradient(
+    90deg,
+    rgba(13, 41, 89, 1) 10%,
+    rgba(13, 41, 89, 1) 23%,
+    rgba(16, 58, 129, 1) 34%,
+    rgba(47, 93, 172, 1) 47%,
+    rgba(47, 93, 172, 1) 56%,
+    rgba(16, 58, 129, 1) 69%,
+    rgba(13, 41, 89, 1) 79%,
+    rgba(13, 41, 89, 1) 86%
+  );
+}
+
+.jobs-GIG .group {
+  position: absolute;
+  top: 210px;
+  left: 386px;
+  width: 671px;
+  height: 86px;
+  box-shadow: 0px 2px 3px #00000040;
+}
+
+.jobs-GIG .div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 667px;
+  height: 86px;
+  background-color: #f7faff;
+  border-radius: 6px;
+  border: 1px solid;
+  border-color: #0d2959;
+}
+
+.jobs-GIG .text-wrapper {
+  position: absolute;
+  top: 30px;
+  left: 36px;
+  width: 165px;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-weight: 500;
+  color: #0f0e0e21;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.jobs-GIG .rectangle-2 {
+  position: absolute;
+  top: 12px;
+  left: 542px;
+  width: 114px;
+  height: 63px;
+  background-color: #deb531;
+  border-radius: 6px;
+}
+
+.jobs-GIG .text-wrapper-2 {
+  position: absolute;
+  top: 28px;
+  left: 557px;
+  width: 87px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.jobs-GIG .category {
+  position: absolute;
+  top: 509px;
+  left: 491px;
+  width: 457px;
+  height: 87px;
+  display: flex;
+  background-color: #deb531;
+  border-radius: 15px;
+  box-shadow: 4px 4px 4px 2px #00000040;
+}
+
+.jobs-GIG .div-wrapper {
+  margin-top: 27px;
+  width: 355.77px;
+  margin-left: 52px;
+  display: flex;
+}
+
+.jobs-GIG .text-wrapper-3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 353.77px;
+  height: 33.14px;
+  font-family: "Montserrat-ExtraBoldItalic", Helvetica;
+  font-weight: 800;
+  font-style: italic;
+  color: #0d2959;
+  font-size: 36px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.jobs-GIG .group-2 {
+  position: absolute;
+  top: 4471px;
+  left: 0;
+  width: 1442px;
+  height: 439px;
+}
+
+.jobs-GIG .rectangle-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 439px;
+  background-color: #deb531;
+}
+
+.jobs-GIG .text-icons {
+  display: flex;
+  width: 1296px;
+  height: 165px;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: absolute;
+  top: 60px;
+  left: 72px;
+}
+
+.jobs-GIG .logo-text-icon {
+  display: flex;
+  flex-direction: column;
+  width: 377px;
+  align-items: flex-start;
+  gap: 40px;
+  position: relative;
+  margin-bottom: -32.38px;
+}
+
+.jobs-GIG .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.jobs-GIG .check {
+  position: relative;
+  width: 28px;
+  height: 28px;
+}
+
+.jobs-GIG .your-go-to-platform {
+  position: relative;
+  width: 408px;
+  height: 129px;
+  margin-right: -31.00px;
+  font-family: "Montserrat-MediumItalic", Helvetica;
+  font-weight: 500;
+  font-style: italic;
+  color: #0d2959;
+  font-size: 17px;
+  letter-spacing: 0;
+  line-height: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.jobs-GIG .text {
+  display: flex;
+  flex-direction: column;
+  width: 128px;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+  align-self: stretch;
+  margin-bottom: -2.38px;
+}
+
+.jobs-GIG .text-wrapper-4 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Montserrat-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #0d2959;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.jobs-GIG .text-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.jobs-GIG .text-wrapper-5 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-weight: 500;
+  color: #0d2959;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 26px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.jobs-GIG .text-wrapper-6 {
+  position: relative;
+  width: fit-content;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-weight: 500;
+  color: #0d2959;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 26px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.jobs-GIG .text-wrapper-7 {
+  position: relative;
+  width: 76px;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-weight: 500;
+  color: #0d2959;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 26px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.jobs-GIG .text-wrapper-8 {
+  position: relative;
+  width: 117px;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-weight: 500;
+  color: #0d2959;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 26px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.jobs-GIG .text-3 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+  flex: 0 0 auto;
+  margin-bottom: -2.38px;
+}
+
+.jobs-GIG .digital-onine-tasks {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-weight: 500;
+  color: #0d2959;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.jobs-GIG .text-wrapper-9 {
+  position: relative;
+  width: fit-content;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-weight: 500;
+  color: #0d2959;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.jobs-GIG .text-wrapper-10 {
+  position: relative;
+  width: fit-content;
+  font-family: "Montserrat-Regular", Helvetica;
+  font-weight: 400;
+  color: #0d2959;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.jobs-GIG .text-input-button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+  align-self: stretch;
+  flex: 0 0 auto;
+}
+
+.jobs-GIG .p {
+  position: relative;
+  align-self: stretch;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-weight: 500;
+  color: #0d2959;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.jobs-GIG .input {
+  position: relative;
+  width: 306px;
+  height: 50px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #0d2959;
+  background: none;
+  font-family: "Montserrat-Regular", Helvetica;
+  font-weight: 400;
+  color: #0d2959;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 16px;
+  white-space: nowrap;
+  padding: 0;
+  padding-left: 21px;
+}
+
+.jobs-GIG .button {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  width: 306px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 40px;
+  position: relative;
+  margin-bottom: -33.38px;
+  background-color: #0d2959;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.jobs-GIG .text-wrapper-11 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-weight: 700;
+  color: #deb531;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.jobs-GIG .copyright-RAKETERO {
+  position: absolute;
+  top: 367px;
+  left: 536px;
+  width: 368px;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-weight: 500;
+  color: #0d2959;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.jobs-GIG .group-3 {
+  position: absolute;
+  top: 719px;
+  left: 133px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .rectangle-4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 383px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 4px 4px 4px 2px #00000040;
+}
+
+.jobs-GIG .img {
+  position: absolute;
+  top: 31px;
+  left: 28px;
+  width: 283px;
+  height: 182px;
+}
+
+.jobs-GIG .JOB-loren-epsum {
+  position: absolute;
+  top: 244px;
+  left: 39px;
+  width: 272px;
+  color: #000000;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: "Montserrat-SemiBold", Helvetica;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.jobs-GIG .group-4 {
+  position: absolute;
+  top: 324px;
+  left: 95px;
+  width: 152px;
+  height: 29px;
+}
+
+.jobs-GIG .rectangle-5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 29px;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+
+.jobs-GIG .text-wrapper-12 {
+  position: absolute;
+  top: 4px;
+  left: 48px;
+  font-family: "Montserrat-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.jobs-GIG .group-5 {
+  position: absolute;
+  top: 719px;
+  left: 967px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-6 {
+  position: absolute;
+  top: 1691px;
+  left: 967px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-7 {
+  position: absolute;
+  top: 2177px;
+  left: 133px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-8 {
+  position: absolute;
+  top: 1205px;
+  left: 967px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-9 {
+  position: absolute;
+  top: 1691px;
+  left: 550px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-10 {
+  position: absolute;
+  top: 1205px;
+  left: 133px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-11 {
+  position: absolute;
+  top: 1205px;
+  left: 550px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-12 {
+  position: absolute;
+  top: 1691px;
+  left: 138px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-13 {
+  position: absolute;
+  top: 2663px;
+  left: 967px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-14 {
+  position: absolute;
+  top: 2663px;
+  left: 133px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-15 {
+  position: absolute;
+  top: 2663px;
+  left: 550px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-16 {
+  position: absolute;
+  top: 3149px;
+  left: 967px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-17 {
+  position: absolute;
+  top: 3149px;
+  left: 133px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-18 {
+  position: absolute;
+  top: 3149px;
+  left: 550px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-19 {
+  position: absolute;
+  top: 3635px;
+  left: 967px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-20 {
+  position: absolute;
+  top: 3635px;
+  left: 133px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-21 {
+  position: absolute;
+  top: 3635px;
+  left: 550px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-22 {
+  position: absolute;
+  top: 2177px;
+  left: 967px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-23 {
+  position: absolute;
+  top: 2177px;
+  left: 550px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-24 {
+  position: absolute;
+  top: 719px;
+  left: 550px;
+  width: 342px;
+  height: 383px;
+}
+
+.jobs-GIG .group-25 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 107px;
+}
+
+.jobs-GIG .group-26 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1450px;
+  height: 107px;
+}
+
+.jobs-GIG .rectangle-6 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 107px;
+  background-color: #deb531;
+}
+
+.jobs-GIG .chatgpt-image-feb {
+  position: absolute;
+  top: 33px;
+  left: 83px;
+  width: 54px;
+  height: 38px;
+  aspect-ratio: 1.43;
+}
+
+.jobs-GIG .chatgpt-image-feb-2 {
+  position: absolute;
+  top: 41px;
+  left: 137px;
+  width: 137px;
+  height: 25px;
+  aspect-ratio: 5.57;
+}
+
+.jobs-GIG .text-wrapper-13 {
+  position: absolute;
+  top: 44px;
+  left: 448px;
+  width: 74px;
+  font-family: "Montserrat-ExtraBoldItalic", Helvetica;
+  font-weight: 800;
+  font-style: italic;
+  color: #0d2959;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.jobs-GIG .text-wrapper-14 {
+  position: absolute;
+  top: 44px;
+  left: 554px;
+  width: 74px;
+  font-family: "Montserrat-ExtraBoldItalic", Helvetica;
+  font-weight: 800;
+  font-style: italic;
+  color: #0d2959;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.jobs-GIG .text-wrapper-15 {
+  position: absolute;
+  top: 44px;
+  left: 672px;
+  width: 91px;
+  font-family: "Montserrat-ExtraBoldItalic", Helvetica;
+  font-weight: 800;
+  font-style: italic;
+  color: #0d2959;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.jobs-GIG .text-wrapper-16 {
+  position: absolute;
+  top: 44px;
+  left: 810px;
+  width: 115px;
+  font-family: "Montserrat-ExtraBoldItalic", Helvetica;
+  font-weight: 800;
+  font-style: italic;
+  color: #0d2959;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.jobs-GIG .text-wrapper-17 {
+  position: absolute;
+  top: 44px;
+  left: 1242px;
+  width: 115px;
+  font-family: "Montserrat-ExtraBoldItalic", Helvetica;
+  font-weight: 800;
+  font-style: italic;
+  color: #0d2959;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.jobs-GIG .ellipse {
+  position: absolute;
+  top: 33px;
+  left: 1197px;
+  width: 38px;
+  height: 38px;
+  background-color: #d9d9d9;
+  border-radius: 19px;
+  aspect-ratio: 1;
+}
