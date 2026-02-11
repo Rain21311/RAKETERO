@@ -900,24 +900,28 @@
   height: 41px;
 }
 
+.group {
+  position: relative;
+}
+
 .back-button {
   position: absolute;
-  top: 20px;
-  left: 20px; /* adjust if needed */
-  padding: 8px 14px;
-  background-color: #f4c430;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 12px;
+  background-color: transparent;
   color: #000;
   text-decoration: none;
   font-weight: 600;
-  border-radius: 6px;
   font-family: sans-serif;
-  z-index: 999;
-  transition: 0.3s ease;
 }
 
 .back-button:hover {
-  background-color: #e0b020;
+  text-decoration: underline;
 }
+
+
 
 
 
