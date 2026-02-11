@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Dashboard - RAKETERO</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="employer-dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">RAKETERO</div>
+                <span class="employer-badge">EMPLOYER</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active">
+                        <a href="#dashboard" class="nav-link" data-section="dashboard">
+                            <span class="icon">📊</span>
+                            <span class="label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#post-job" class="nav-link" data-section="post-job">
+                            <span class="icon">➕</span>
+                            <span class="label">Post a Job</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#job-management" class="nav-link" data-section="job-management">
+                            <span class="icon">📋</span>
+                            <span class="label">Job Management</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#applicants" class="nav-link" data-section="applicants">
+                            <span class="icon">👥</span>
+                            <span class="label">Applicants</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#messages" class="nav-link" data-section="messages">
+                            <span class="icon">💬</span>
+                            <span class="label">Messages</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#billing" class="nav-link" data-section="billing">
+                            <span class="icon">💳</span>
+                            <span class="label">Subscription & Billing</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#settings" class="nav-link" data-section="settings">
+                            <span class="icon">⚙️</span>
+                            <span class="label">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" alt="User" class="user-avatar">
+                    <div class="user-details">
+                        <p class="user-name">John Employer</p>
+                        <p class="user-role">Premium Plan</p>
+                    </div>
+                </div>
+                <button class="logout-btn">Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-title">
+                    <h1>Employer Dashboard</h1>
+                    <p class="header-subtitle">Manage your job postings and applicants</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary btn-post-job">
+                        <span class="icon">➕</span>
+                        Post a Job
+                    </button>
+                    <div class="notifications">
+                        <button class="notification-btn">🔔</button>
+                        <span class="notification-badge">3</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content Sections -->
+            <div class="dashboard-sections">
+
+                <!-- 1. DASHBOARD OVERVIEW SECTION -->
+                <section id="dashboard" class="section active">
+                    <!-- Subscription Plan Card -->
+                    <div class="card subscription-card">
+                        <div class="card-header">
+                            <h2>Subscription Plan</h2>
+                        </div>
+                        <div class="plan-info">
+                            <div class="plan-details">
+                                <h3 class="plan-name">Premium Plan</h3>
+                                <p class="plan-status active-status">✓ Active</p>
+                                <p class="plan-description">Unlimited job postings, full messaging, priority support</p>
+                                <p class="renewal-date"><strong>Renews on:</strong> March 9, 2026</p>
+                            </div>
+                            <div class="plan-actions">
+                                <button class="btn btn-secondary">Upgrade Plan</button>
+                                <button class="btn btn-secondary">Manage Billing</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Statistics -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon total-posts">📢</div>
+                            <div class="stat-content">
+                                <h3 class="stat-label">Total Jobs Posted</h3>
+                                <p class="stat-value">24</p>
+                                <p class="stat-change">+3 this month</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon active-posts">✨</div>
+                            <div class="stat-content">
+                                <h3 class="stat-label">Active Job Posts</h3>
+                                <p class="stat-value">12</p>
+                                <p class="stat-change">3 pending approval</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon total-applicants">👥</div>
+                            <div class="stat-content">
+                                <h3 class="stat-label">Total Applicants</h3>
+                                <p class="stat-value">187</p>
+                                <p class="stat-change">+42 this week</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon new-applicants">🆕</div>
+                            <div class="stat-content">
+                                <h3 class="stat-label">New Applicants Today</h3>
+                                <p class="stat-value">8</p>
+                                <p class="stat-change">3 need review</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Recent Activity</h2>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">📝</div>
+                                <div class="activity-content">
+                                    <p class="activity-text">You posted a new job: <strong>Junior Developer</strong></p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">👤</div>
+                                <div class="activity-content">
+                                    <p class="activity-text">New applicant: <strong>Sarah Johnson</strong> applied for Senior Developer</p>
+                                    <span class="activity-time">4 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">✓</div>
+                                <div class="activity-content">
+                                    <p class="activity-text">Your job posting was <strong>approved</strong></p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. POST JOB SECTION -->
+                <section id="post-job" class="section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Post a New Job</h2>
+                        </div>
+                        <form id="postJobForm" class="form-grid">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="jobTitle">Job Title *</label>
+                                    <input type="text" id="jobTitle" name="jobTitle" placeholder="e.g., Senior Developer" required>
+                                    <span class="form-error"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="companyName">Company / Employer Name *</label>
+                                    <input type="text" id="companyName" name="companyName" placeholder="Your company name" required>
+                                    <span class="form-error"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="location">Location *</label>
+                                    <input type="text" id="location" name="location" placeholder="e.g., Metro Manila, Philippines" required>
+                                    <span class="form-error"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="category">Category *</label>
+                                    <select id="category" name="category" required>
+                                        <option value="">Select a category</option>
+                                        <option value="digital">Digital & Online Tasks</option>
+                                        <option value="creative">Creative Services</option>
+                                        <option value="local">Local Services</option>
+                                        <option value="lifestyle">Lifestyle & Wellness</option>
+                                        <option value="business">Business Support</option>
+                                    </select>
+                                    <span class="form-error"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="tags">Job Tags (Optional)</label>
+                                    <input type="text" id="tags" name="tags" placeholder="Separate with commas (e.g., Remote, Full-time, Flexible)">
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="description">Job Description *</label>
+                                <div class="editor-toolbar">
+                                    <button type="button" class="editor-btn">B</button>
+                                    <button type="button" class="editor-btn">I</button>
+                                    <button type="button" class="editor-btn">U</button>
+                                    <span class="toolbar-divider"></span>
+                                    <button type="button" class="editor-btn">•</button>
+                                    <button type="button" class="editor-btn">1.</button>
+                                </div>
+                                <textarea id="description" name="description" rows="8" placeholder="Describe the job role, responsibilities, and requirements..." required></textarea>
+                                <span class="form-error"></span>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="closingDate">Closing Date *</label>
+                                    <input type="date" id="closingDate" name="closingDate" required>
+                                    <span class="form-error"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="website">Website (Optional)</label>
+                                    <input type="url" id="website" name="website" placeholder="https://yourcompany.com">
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="tagline">Tagline (Optional)</label>
+                                <input type="text" id="tagline" name="tagline" placeholder="A catchy one-liner for your job posting">
+                            </div>
+
+                            <!-- Document Upload Required for Standard & Premium -->
+                            <div class="form-group full-width verification-section">
+                                <label>Upload Verification Document *</label>
+                                <p class="form-help">Required for Standard & Premium plans</p>
+                                <div class="file-upload">
+                                    <input type="file" id="verificationDoc" name="verificationDoc" accept=".pdf,.doc,.docx,.jpg,.png">
+                                    <div class="file-upload-area">
+                                        <p class="upload-icon">📄</p>
+                                        <p class="upload-text">Drag and drop your verification document here</p>
+                                        <p class="upload-hint">or click to select (PDF, DOC, JPG, PNG)</p>
+                                    </div>
+                                    <span class="form-error"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary btn-large">Post Job</button>
+                                <button type="reset" class="btn btn-secondary btn-large">Clear</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- 3. JOB MANAGEMENT SECTION -->
+                <section id="job-management" class="section">
+                    <div class="section-header">
+                        <h2>Job Management</h2>
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-status="all">All</button>
+                            <button class="filter-tab" data-status="active">Active</button>
+                            <button class="filter-tab" data-status="pending">Pending</button>
+                            <button class="filter-tab" data-status="closed">Closed</button>
+                            <button class="filter-tab" data-status="rejected">Rejected</button>
+                        </div>
+                    </div>
+
+                    <div class="jobs-grid">
+                        <!-- Job Card 1 -->
+                        <div class="job-card active-status">
+                            <div class="job-header">
+                                <h3 class="job-title">Senior React Developer</h3>
+                                <span class="job-status">Active</span>
+                            </div>
+                            <div class="job-details">
+                                <p><strong>Location:</strong> Metro Manila, Philippines</p>
+                                <p><strong>Category:</strong> Digital & Online Tasks</p>
+                                <p><strong>Posted:</strong> Feb 5, 2026</p>
+                                <p><strong>Closes:</strong> Feb 20, 2026</p>
+                                <p><strong>Applicants:</strong> 12</p>
+                            </div>
+                            <div class="job-actions">
+                                <button class="btn btn-sm btn-primary">View</button>
+                                <button class="btn btn-sm btn-secondary">Edit</button>
+                                <button class="btn btn-sm btn-warning">Close</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </div>
+                        </div>
+
+                        <!-- Job Card 2 -->
+                        <div class="job-card pending-status">
+                            <div class="job-header">
+                                <h3 class="job-title">UI/UX Designer</h3>
+                                <span class="job-status">Pending Approval</span>
+                            </div>
+                            <div class="job-details">
+                                <p><strong>Location:</strong> Remote</p>
+                                <p><strong>Category:</strong> Creative Services</p>
+                                <p><strong>Posted:</strong> Feb 8, 2026</p>
+                                <p><strong>Closes:</strong> Feb 25, 2026</p>
+                                <p><strong>Applicants:</strong> 5</p>
+                            </div>
+                            <div class="job-actions">
+                                <button class="btn btn-sm btn-primary">View</button>
+                                <button class="btn btn-sm btn-secondary">Edit</button>
+                                <button class="btn btn-sm btn-warning">Close</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </div>
+                        </div>
+
+                        <!-- Job Card 3 -->
+                        <div class="job-card closed-status">
+                            <div class="job-header">
+                                <h3 class="job-title">Content Writer</h3>
+                                <span class="job-status">Closed</span>
+                            </div>
+                            <div class="job-details">
+                                <p><strong>Location:</strong> Metro Manila, Philippines</p>
+                                <p><strong>Category:</strong> Business Support</p>
+                                <p><strong>Posted:</strong> Jan 15, 2026</p>
+                                <p><strong>Closes:</strong> Feb 1, 2026</p>
+                                <p><strong>Applicants:</strong> 28</p>
+                            </div>
+                            <div class="job-actions">
+                                <button class="btn btn-sm btn-primary">View</button>
+                                <button class="btn btn-sm btn-secondary">Edit</button>
+                                <button class="btn btn-sm btn-warning">Re-open</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. APPLICANTS SECTION -->
+                <section id="applicants" class="section">
+                    <div class="section-header">
+                        <h2>Applicants</h2>
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search applicants...">
+                            <button class="btn btn-secondary">🔍</button>
+                        </div>
+                    </div>
+
+                    <div class="applicants-container">
+                        <!-- Applicant Card 1 -->
+                        <div class="applicant-card">
+                            <div class="applicant-header">
+                                <div class="applicant-info">
+                                    <img src="https://via.placeholder.com/60" alt="Applicant" class="applicant-avatar">
+                                    <div class="applicant-details">
+                                        <h3 class="applicant-name">Sarah Johnson</h3>
+                                        <p class="applicant-job">Applied for: Senior React Developer</p>
+                                        <p class="applicant-date">Applied: Feb 8, 2026</p>
+                                    </div>
+                                </div>
+                                <span class="application-status">New</span>
+                            </div>
+                            <div class="applicant-body">
+                                <p class="profile-summary"><strong>Profile Summary:</strong> Full-stack developer with 5+ years experience in React and Node.js</p>
+                                <div class="documents">
+                                    <p><strong>Documents:</strong></p>
+                                    <a href="#" class="doc-link">📄 Resume</a>
+                                    <a href="#" class="doc-link">📄 Portfolio</a>
+                                </div>
+                            </div>
+                            <div class="applicant-actions">
+                                <button class="btn btn-primary">Accept</button>
+                                <button class="btn btn-warning">Message</button>
+                                <button class="btn btn-danger">Reject</button>
+                            </div>
+                        </div>
+
+                        <!-- Applicant Card 2 -->
+                        <div class="applicant-card">
+                            <div class="applicant-header">
+                                <div class="applicant-info">
+                                    <img src="https://via.placeholder.com/60" alt="Applicant" class="applicant-avatar">
+                                    <div class="applicant-details">
+                                        <h3 class="applicant-name">John Rivera</h3>
+                                        <p class="applicant-job">Applied for: Senior React Developer</p>
+                                        <p class="applicant-date">Applied: Feb 7, 2026</p>
+                                    </div>
+                                </div>
+                                <span class="application-status">Reviewing</span>
+                            </div>
+                            <div class="applicant-body">
+                                <p class="profile-summary"><strong>Profile Summary:</strong> React specialist focusing on performance optimization and modern web technologies</p>
+                                <div class="documents">
+                                    <p><strong>Documents:</strong></p>
+                                    <a href="#" class="doc-link">📄 Resume</a>
+                                </div>
+                            </div>
+                            <div class="applicant-actions">
+                                <button class="btn btn-primary">Accept</button>
+                                <button class="btn btn-warning">Message</button>
+                                <button class="btn btn-danger">Reject</button>
+                            </div>
+                        </div>
+
+                        <!-- Applicant Card 3 -->
+                        <div class="applicant-card">
+                            <div class="applicant-header">
+                                <div class="applicant-info">
+                                    <img src="https://via.placeholder.com/60" alt="Applicant" class="applicant-avatar">
+                                    <div class="applicant-details">
+                                        <h3 class="applicant-name">Maria Santos</h3>
+                                        <p class="applicant-job">Applied for: UI/UX Designer</p>
+                                        <p class="applicant-date">Applied: Feb 6, 2026</p>
+                                    </div>
+                                </div>
+                                <span class="application-status">Accepted</span>
+                            </div>
+                            <div class="applicant-body">
+                                <p class="profile-summary"><strong>Profile Summary:</strong> Award-winning UX/UI designer with expertise in mobile and web applications</p>
+                                <div class="documents">
+                                    <p><strong>Documents:</strong></p>
+                                    <a href="#" class="doc-link">📄 Resume</a>
+                                    <a href="#" class="doc-link">🎨 Design Portfolio</a>
+                                </div>
+                            </div>
+                            <div class="applicant-actions">
+                                <button class="btn btn-primary" disabled>Accepted</button>
+                                <button class="btn btn-warning">Message</button>
+                                <button class="btn btn-secondary">View Offer</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. MESSAGES SECTION -->
+                <section id="messages" class="section">
+                    <div class="messages-container">
+                        <div class="messages-list">
+                            <div class="messages-header">
+                                <h2>Messages</h2>
+                                <p class="messaging-limit">Premium: Unlimited messages</p>
+                            </div>
+                            <div class="inbox-list">
+                                <div class="inbox-item active">
+                                    <div class="inbox-avatar">SJ</div>
+                                    <div class="inbox-content">
+                                        <h4 class="inbox-name">Sarah Johnson</h4>
+                                        <p class="inbox-preview">Thanks for the opportunity! I'm very interested...</p>
+                                        <span class="inbox-time">10 min ago</span>
+                                    </div>
+                                    <span class="inbox-badge">1</span>
+                                </div>
+
+                                <div class="inbox-item">
+                                    <div class="inbox-avatar">JR</div>
+                                    <div class="inbox-content">
+                                        <h4 class="inbox-name">John Rivera</h4>
+                                        <p class="inbox-preview">When can we schedule the interview?</p>
+                                        <span class="inbox-time">2 hours ago</span>
+                                    </div>
+                                </div>
+
+                                <div class="inbox-item">
+                                    <div class="inbox-avatar">MS</div>
+                                    <div class="inbox-content">
+                                        <h4 class="inbox-name">Maria Santos</h4>
+                                        <p class="inbox-preview">Excited to start working with your company!</p>
+                                        <span class="inbox-time">1 day ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="messages-detail">
+                            <div class="message-chat">
+                                <div class="chat-header">
+                                    <h3>Sarah Johnson</h3>
+                                    <p class="chat-status">Applied for Senior React Developer</p>
+                                </div>
+
+                                <div class="chat-messages">
+                                    <div class="message incoming">
+                                        <p>Hi! Thank you for considering my application for the Senior React Developer position.</p>
+                                    </div>
+                                    <div class="message incoming">
+                                        <p>I'm very interested in this opportunity and believe I would be a great fit for your team.</p>
+                                    </div>
+                                    <div class="message outgoing">
+                                        <p>Thank you Sarah! We're impressed with your profile. Can we schedule a call next week?</p>
+                                    </div>
+                                    <div class="message incoming">
+                                        <p>Absolutely! I'm available Monday or Wednesday afternoon. What works best for you?</p>
+                                    </div>
+                                </div>
+
+                                <div class="chat-input">
+                                    <textarea placeholder="Type your message..."></textarea>
+                                    <button class="btn btn-primary">Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. SUBSCRIPTION & BILLING SECTION -->
+                <section id="billing" class="section">
+                    <div class="billing-container">
+                        <!-- Current Plan -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Current Subscription Plan</h2>
+                            </div>
+                            <div class="plan-comparison">
+                                <div class="current-plan-highlight">
+                                    <h3>Premium Plan</h3>
+                                    <p class="plan-price">$99 <span class="period">/month</span></p>
+                                    <p class="plan-status active-status">✓ Active</p>
+                                    <p class="renewal-info">Renews on March 9, 2026</p>
+
+                                    <div class="plan-features">
+                                        <h4>Included Features:</h4>
+                                        <ul>
+                                            <li>✓ Unlimited job postings</li>
+                                            <li>✓ Unlimited messaging</li>
+                                            <li>✓ Priority support</li>
+                                            <li>✓ Advanced analytics</li>
+                                            <li>✓ Featured job listings</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="plan-actions">
+                                        <button class="btn btn-secondary">Upgrade to Enterprise</button>
+                                        <button class="btn btn-secondary">Manage Payment Method</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Available Plans -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Available Plans</h2>
+                            </div>
+                            <div class="plans-grid">
+                                <div class="plan-option">
+                                    <h3>Free Plan</h3>
+                                    <p class="plan-price">Free</p>
+                                    <ul class="plan-list">
+                                        <li>✓ 5 job postings/month</li>
+                                        <li>✓ Limited messaging</li>
+                                        <li>✓ Basic support</li>
+                                        <li>✗ No analytics</li>
+                                        <li>✗ No featured listings</li>
+                                    </ul>
+                                    <button class="btn btn-secondary btn-block">Downgrade</button>
+                                </div>
+
+                                <div class="plan-option">
+                                    <h3>Standard Plan</h3>
+                                    <p class="plan-price">$49 <span class="period">/month</span></p>
+                                    <ul class="plan-list">
+                                        <li>✓ 30 job postings/month</li>
+                                        <li>✓ Full messaging</li>
+                                        <li>✓ Priority support</li>
+                                        <li>✓ Basic analytics</li>
+                                        <li>✗ No featured listings</li>
+                                    </ul>
+                                    <button class="btn btn-secondary btn-block">Downgrade</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment History -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Payment History</h2>
+                            </div>
+                            <table class="payment-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Feb 9, 2026</td>
+                                        <td>Premium Plan - Monthly</td>
+                                        <td>$99.00</td>
+                                        <td><span class="status-completed">Completed</span></td>
+                                        <td><a href="#" class="link">Invoice</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jan 9, 2026</td>
+                                        <td>Premium Plan - Monthly</td>
+                                        <td>$99.00</td>
+                                        <td><span class="status-completed">Completed</span></td>
+                                        <td><a href="#" class="link">Invoice</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dec 9, 2025</td>
+                                        <td>Premium Plan - Monthly</td>
+                                        <td>$99.00</td>
+                                        <td><span class="status-completed">Completed</span></td>
+                                        <td><a href="#" class="link">Invoice</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. ACCOUNT SETTINGS SECTION -->
+                <section id="settings" class="section">
+                    <div class="settings-container">
+                        <!-- Company Profile -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Company Profile</h2>
+                            </div>
+                            <form id="companySettingsForm" class="form-grid">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="companyNameSetting">Company Name *</label>
+                                        <input type="text" id="companyNameSetting" name="companyName" value="Tech Innovations Inc." required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="companyEmail">Company Email *</label>
+                                        <input type="email" id="companyEmail" name="email" value="contact@techinnovations.com" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="companyPhone">Phone Number</label>
+                                        <input type="tel" id="companyPhone" name="phone" value="+63 2 8123 4567">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="companyWebsite">Company Website</label>
+                                        <input type="url" id="companyWebsite" name="website" value="https://techinnovations.com">
+                                    </div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="companyBio">Company Bio</label>
+                                    <textarea id="companyBio" name="bio" rows="5" placeholder="Tell us about your company...">Tech Innovations Inc. is a leading software development company...</textarea>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Verification Documents -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Verification Documents</h2>
+                                <p class="header-hint">Upload documents to increase your credibility</p>
+                            </div>
+                            <div class="documents-section">
+                                <div class="document-item">
+                                    <div class="document-info">
+                                        <p class="document-name">Business Registration Certificate</p>
+                                        <p class="document-status verified">✓ Verified</p>
+                                        <p class="document-date">Uploaded: Jan 15, 2026</p>
+                                    </div>
+                                    <div class="document-actions">
+                                        <button class="btn btn-secondary btn-sm">Replace</button>
+                                        <button class="btn btn-danger btn-sm">Remove</button>
+                                    </div>
+                                </div>
+
+                                <div class="document-item">
+                                    <div class="document-info">
+                                        <p class="document-name">Tax Identification Document</p>
+                                        <p class="document-status verified">✓ Verified</p>
+                                        <p class="document-date">Uploaded: Jan 15, 2026</p>
+                                    </div>
+                                    <div class="document-actions">
+                                        <button class="btn btn-secondary btn-sm">Replace</button>
+                                        <button class="btn btn-danger btn-sm">Remove</button>
+                                    </div>
+                                </div>
+
+                                <div class="upload-area">
+                                    <p class="upload-icon">📄</p>
+                                    <p class="upload-text">Upload Additional Document</p>
+                                    <p class="upload-hint">Drag and drop or click to select</p>
+                                    <input type="file" id="additionalDoc" class="file-input-hidden">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security & Password -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Security & Password</h2>
+                            </div>
+                            <form id="securityForm" class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="currentPassword">Current Password *</label>
+                                    <input type="password" id="currentPassword" name="currentPassword" placeholder="Enter your current password" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="newPassword">New Password *</label>
+                                        <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password" required>
+                                        <p class="form-hint">At least 8 characters, with uppercase, lowercase, and numbers</p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Confirm Password *</label>
+                                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm new password" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Change Password</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Two-Factor Authentication -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Two-Factor Authentication</h2>
+                            </div>
+                            <div class="security-option">
+                                <div class="security-info">
+                                    <h3>Enable Two-Factor Authentication</h3>
+                                    <p>Add an extra layer of security to your account</p>
+                                </div>
+                                <button class="btn btn-primary">Enable 2FA</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="employer-dashboard.js"></script>
+</body>
+</html>
