@@ -42,9 +42,10 @@
   box-shadow: 0 2px 12px #0d295980;
   cursor: pointer;
 }
+
 .desktop {
   background-color: #ffffff;
-  overflow: hidden;
+  overflow: visible;    /* Change from hidden to visible */
   width: 100%;
   min-width: 1440px;
   min-height: 4094px;
@@ -243,19 +244,19 @@
 }
 
 .desktop .group-5 {
-  position: fixed;      
+  position: fixed;      /* This locks it to the top */
   top: 0;
   left: 0;
-  width: 100%;         
+  width: 100vw;         /* 100vw forces it to the full width of the browser window */
   height: 107px;
-  z-index: 9999;       
+  z-index: 9999 !important; /* Forces it to stay on the front layer */
 }
 
 .desktop .rectangle-3 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;         
+  width: 100%;          /* Fills the 100vw container */
   height: 107px;
   background-color: #deb531;
 }
@@ -1344,4 +1345,5 @@
   width: 213px;
   height: 48px;
 }
+
 
