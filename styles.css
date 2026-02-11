@@ -899,3 +899,21 @@
   width: 175px;
   height: 41px;
 }
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 150px; /* adjust if needed */
+  padding: 8px 14px;
+  background-color: #f4c430;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #e0b020;
+}
+
