@@ -5,20 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RAKETERO Admin Dashboard</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="admin.css" />
 
-  <!-- Chart.js -->
-  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
-  <!-- JS -->
   <script defer src="admin.js"></script>
 </head>
 
 <body>
   <div class="dashboard">
 
-    <!-- Sidebar -->
     <aside class="sidebar">
       <h2 class="logo">RAKETERO</h2>
       <ul>
@@ -27,20 +23,16 @@
         <li onclick="showSection('gigs')">🧰 Gigs</li>
         <li onclick="showSection('safety')">🛡 Trust & Safety</li>
         <li onclick="showSection('payments')">💳 Payments</li>
-        <li onclick="showSection('settings')">⚙ Settings</li>
       </ul>
     </aside>
 
-    <!-- Main -->
     <main class="main">
 
-      <!-- Topbar -->
       <header class="topbar">
         <input type="text" placeholder="Search..." />
         <span>🔔 3</span>
       </header>
 
-      <!-- Overview -->
       <section id="overview" class="section active">
         <div class="cards">
           <div class="card"><h3>Total Users</h3><p id="totalUsers">0</p></div>
@@ -52,7 +44,6 @@
         <canvas id="growthChart"></canvas>
       </section>
 
-      <!-- Users -->
       <section id="users" class="section">
         <h2>User Management</h2>
         <table>
@@ -69,7 +60,6 @@
         </table>
       </section>
 
-      <!-- Gigs -->
       <section id="gigs" class="section">
         <h2>Gig Management</h2>
         <table>
@@ -91,7 +81,6 @@
 
   <div class="trust-grid">
 
-    <!-- Complaints -->
     <div class="trust-card">
       <h3>Complaints</h3>
 
@@ -108,7 +97,6 @@
       </div>
     </div>
 
-    <!-- Feedback -->
     <div class="trust-card">
       <h3>Feedback & Ratings</h3>
 
@@ -127,8 +115,6 @@
   </div>
 </section>
 
-
-      <!-- Payments -->
       <section id="payments" class="section">
         <h2>Transactions</h2>
         <button onclick="exportCSV()">Export CSV</button>
@@ -144,23 +130,6 @@
           <tbody id="paymentTable"></tbody>
         </table>
       </section>
-
-      <!-- Settings -->
-      <section id="settings" class="section">
-  <h2>System Settings</h2>
-
-  <div class="logo-row">
-    <input type="text" placeholder="Logo URL" />
-
-    <div class="color-box">
-      <input type="color" />
-    </div>
-  </div>
-
-  <textarea placeholder="Notification template"></textarea>
-
-  <button class="save-btn">Save Settings</button>
-</section>
 
     </main>
   </div>
