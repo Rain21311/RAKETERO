@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAKETERO Payment System</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f4f6f9;
+    padding:20px;
+}
+
+.container{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align:center;
+}
+
+input, select, button{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+button{
+    background:#2e7d32;
+    color:white;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.summary{
+    background:#f0f0f0;
+    padding:10px;
+    border-radius:5px;
+    margin-top:10px;
+}
+
+.wallet{
+    background:#e8f5e9;
+    padding:10px;
+    border-radius:5px;
+    margin-bottom:10px;
+}
+
+.history{
+    margin-top:15px;
+    font-size:14px;
+    background:#fafafa;
+    padding:10px;
+    border-radius:5px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>RAKETERO Payment System</h2>
+
+<div class="wallet">
+    <strong>Wallet Balance: ₱<span id="walletBalance">0</span></strong><br>
+    <strong>Platform Profit: ₱<span id="platformProfit">0</span></strong>
+</div>
+
+<input type="number" id="amount" placeholder="Enter Job Budget (₱)">
+
+<select id="method">
+    <option value="">-- Select Payment Method --</option>
+    <option value="card">Card</option>
+    <option value="gcash">GCash</option>
+    <option value="paypal">PayPal</option>
+    <option value="cash">Cash</option>
+</select>
+
+<div id="paymentFields"></div>
+
+<div class="summary" id="summary"></div>
+
+<button onclick="makePayment()">PAY</button>
+<button onclick="completeJob()">MARK JOB AS DONE</button>
+
+<div class="history" id="history"></div>
+
+</div>
+
+<script>
+
+// Initialize storage
+if(!localStorage.getItem("wallet")) localStorage.setItem("wallet", 0);
+if(!localStorage.getItem("profit")) localStorage.setItem("profit", 0);
+if(!localStorage.getItem("history")) localStorage.setItem("history", JSON.stringify([]));
+
+updateDisplay();
+
+// Show dynamic fields
+document.getElementById("method").addEventListener("change", function(){
+
+    let method = this.value;
+    let fields = document.getElementById("paymentFields");
+    fields.innerHTML = "";
+
+    if(method === "card"){
+        fields.innerHTML = `
+            <input placeholder="Card Number">
+            <input placeholder="CVV">
+        `;
+    }
+
+    if(method === "gcash"){
+        fields.innerHTML = `
+            <input placeholder="GCash Number">
+        `;
+    }
+
+    if(method === "paypal"){
+        fields.innerHTML = `
+            <input placeholder="PayPal Email">
+        `;
+    }
+
+    if(method === "cash"){
+        fields.innerHTML = `
+            <p style="color:green;">Cash selected. Pay at office.</p>
+        `;
+    }
+});
+
+// Calculate rebate live
+document.getElementById("amount").addEventListener("input", function(){
+
+    let amount = parseFloat(this.value) || 0;
+    let rebate = calculateRebate(amount);
+    let commission = amount * 0.10; // platform takes 10%
+    let workerPay = amount - commission;
+
+    document.getElementById("summary").innerHTML = `
+        Rebate (Pending): ₱${rebate.toFixed(2)} <br>
+        Worker Will Receive: ₱${workerPay.toFixed(2)} <br>
+        Platform Commission: ₱${commission.toFixed(2)}
+    `;
+});
+
+function calculateRebate(amount){
+    if(amount >= 1000) return amount * 0.10;
+    if(amount >= 500) return amount * 0.05;
+    return 0;
+}
+
+function makePayment(){
+
+    let amount = parseFloat(document.getElementById("amount").value);
+    let method = document.getElementById("method").value;
+
+    if(!amount || !method){
+        alert("Complete all fields.");
+        return;
+    }
+
+    let rebate = calculateRebate(amount);
+    let commission = amount * 0.10;
+    let workerPay = amount - commission;
+
+    let job = {
+        amount,
+        rebate,
+        commission,
+        workerPay,
+        method,
+        jobStatus: "Ongoing",
+        rebateStatus: "Pending",
+        date: new Date().toLocaleString()
+    };
+
+    localStorage.setItem("currentJob", JSON.stringify(job));
+
+    alert("Payment recorded. Rebate pending until job completion.");
+
+    updateHistory("Job Created - ₱" + amount);
+}
+
+function completeJob(){
+
+    let job = JSON.parse(localStorage.getItem("currentJob"));
+
+    if(!job){
+        alert("No active job.");
+        return;
+    }
+
+    job.jobStatus = "Completed";
+    job.rebateStatus = "Approved";
+
+    // Credit rebate to wallet
+    let wallet = parseFloat(localStorage.getItem("wallet"));
+    wallet += job.rebate;
+    localStorage.setItem("wallet", wallet);
+
+    // Add platform profit
+    let profit = parseFloat(localStorage.getItem("profit"));
+    profit += job.commission - job.rebate; 
+    localStorage.setItem("profit", profit);
+
+    localStorage.removeItem("currentJob");
+
+    updateDisplay();
+    updateHistory("Job Completed - Rebate ₱" + job.rebate.toFixed(2) + " Credited");
+
+    alert("Job completed! Rebate credited to wallet.");
+}
+
+function updateDisplay(){
+    document.getElementById("walletBalance").innerText =
+        parseFloat(localStorage.getItem("wallet")).toFixed(2);
+
+    document.getElementById("platformProfit").innerText =
+        parseFloat(localStorage.getItem("profit")).toFixed(2);
+
+    showHistory();
+}
+
+function updateHistory(text){
+    let history = JSON.parse(localStorage.getItem("history"));
+    history.push(text + " (" + new Date().toLocaleTimeString() + ")");
+    localStorage.setItem("history", JSON.stringify(history));
+    showHistory();
+}
+
+function showHistory(){
+    let history = JSON.parse(localStorage.getItem("history"));
+    document.getElementById("history").innerHTML =
+        "<strong>History:</strong><br>" + history.join("<br>");
+}
+
+</script>
+
+</body>
+</html>
