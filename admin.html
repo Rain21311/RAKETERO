@@ -1,137 +1,760 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAKETERO Admin Dashboard</title>
-
-  <link rel="stylesheet" href="admin.css" />
-
-<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-
-  <script defer src="admin.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - RAKETERO</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
 </head>
-
 <body>
-  <div class="dashboard">
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">RAKETERO</div>
+                <span class="admin-badge">ADMIN</span>
+            </div>
 
-    <aside class="sidebar">
-      <h2 class="logo">RAKETERO</h2>
-      <ul>
-        <li onclick="showSection('overview')" class="active">📊 Overview</li>
-        <li onclick="showSection('users')">👥 Users</li>
-        <li onclick="showSection('gigs')">🧰 Gigs</li>
-        <li onclick="showSection('safety')">🛡 Trust & Safety</li>
-        <li onclick="showSection('payments')">💳 Payments</li>
-      </ul>
-    </aside>
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active">
+                        <a href="#overview" class="nav-link" data-section="overview">
+                            <span class="icon">📊</span>
+                            <span class="label">Overview</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#users" class="nav-link" data-section="users">
+                            <span class="icon">👤</span>
+                            <span class="label">User Management</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#employers" class="nav-link" data-section="employers">
+                            <span class="icon">🏢</span>
+                            <span class="label">Employer Management</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#jobs" class="nav-link" data-section="jobs">
+                            <span class="icon">📝</span>
+                            <span class="label">Job Post Management</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#payments" class="nav-link" data-section="payments">
+                            <span class="icon">💰</span>
+                            <span class="label">Subscription & Payments</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#settings" class="nav-link" data-section="settings">
+                            <span class="icon">⚙️</span>
+                            <span class="label">System Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-    <main class="main">
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" alt="Admin" class="user-avatar">
+                    <div class="user-details">
+                        <p class="user-name">Admin User</p>
+                        <p class="user-role">Administrator</p>
+                    </div>
+                </div>
+                <button class="logout-btn">Logout</button>
+            </div>
+        </aside>
 
-      <header class="topbar">
-        <input type="text" placeholder="Search..." />
-        <span>🔔 3</span>
-      </header>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-title">
+                    <h1>Admin Dashboard</h1>
+                    <p class="header-subtitle">Platform administration and control center</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search...">
+                        <button class="btn-icon">🔍</button>
+                    </div>
+                    <div class="notifications">
+                        <button class="notification-btn">🔔</button>
+                        <span class="notification-badge">5</span>
+                    </div>
+                </div>
+            </header>
 
-      <section id="overview" class="section active">
-        <div class="cards">
-          <div class="card"><h3>Total Users</h3><p id="totalUsers">0</p></div>
-          <div class="card"><h3>Active Gigs</h3><p id="activeGigs">0</p></div>
-          <div class="card"><h3>Applications</h3><p id="applications">0</p></div>
-          <div class="card"><h3>Popular Category</h3><p id="popularCategory">-</p></div>
-        </div>
+            <!-- Dashboard Content Sections -->
+            <div class="dashboard-sections">
 
-        <canvas id="growthChart"></canvas>
-      </section>
+                <!-- 1. ADMIN OVERVIEW SECTION -->
+                <section id="overview" class="section active">
+                    <!-- Key Metrics -->
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon">👥</div>
+                            <div class="metric-content">
+                                <h3 class="metric-label">Total Users</h3>
+                                <p class="metric-value">2,847</p>
+                                <p class="metric-change">↑ 245 this month</p>
+                            </div>
+                        </div>
 
-      <section id="users" class="section">
-        <h2>User Management</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Role</th>
-              <th>Status</th>
-              <th>Verified</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="userTable"></tbody>
-        </table>
-      </section>
+                        <div class="metric-card">
+                            <div class="metric-icon">🏢</div>
+                            <div class="metric-content">
+                                <h3 class="metric-label">Total Employers</h3>
+                                <p class="metric-value">328</p>
+                                <p class="metric-change">↑ 42 this month</p>
+                            </div>
+                        </div>
 
-      <section id="gigs" class="section">
-        <h2>Gig Management</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Status</th>
-              <th>Date</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="gigTable"></tbody>
-        </table>
-      </section>
+                        <div class="metric-card">
+                            <div class="metric-icon">📋</div>
+                            <div class="metric-content">
+                                <h3 class="metric-label">Active Job Posts</h3>
+                                <p class="metric-value">1,256</p>
+                                <p class="metric-change">↑ 189 this week</p>
+                            </div>
+                        </div>
 
-<section id="safety" class="section">
-  <h2>Trust & Safety</h2>
+                        <div class="metric-card">
+                            <div class="metric-icon">⏳</div>
+                            <div class="metric-content">
+                                <h3 class="metric-label">Pending Approvals</h3>
+                                <p class="metric-value">47</p>
+                                <p class="metric-change">⚠️ Require action</p>
+                            </div>
+                        </div>
 
-  <div class="trust-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon">💵</div>
+                            <div class="metric-content">
+                                <h3 class="metric-label">Total Revenue</h3>
+                                <p class="metric-value">$89,450</p>
+                                <p class="metric-change">↑ 15% vs last month</p>
+                            </div>
+                        </div>
 
-    <div class="trust-card">
-      <h3>Complaints</h3>
+                        <div class="metric-card">
+                            <div class="metric-icon">📈</div>
+                            <div class="metric-content">
+                                <h3 class="metric-label">Active Subscriptions</h3>
+                                <p class="metric-value">312</p>
+                                <p class="metric-change">↑ 28 new this week</p>
+                            </div>
+                        </div>
+                    </div>
 
-      <div class="complaint-group">
-        <h4>Employer Reports</h4>
-        <div class="complaint">Freelancer submitted late</div>
-        <div class="complaint">Low quality work delivered</div>
-      </div>
+                    <!-- Quick Stats & Charts -->
+                    <div class="charts-grid">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Subscription Distribution</h2>
+                            </div>
+                            <div class="chart-container">
+                                <div class="subscription-stats">
+                                    <div class="stat">
+                                        <div class="stat-bar" style="width: 45%"></div>
+                                        <p><strong>Free:</strong> 140 (42%)</p>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="stat-bar" style="width: 35%"></div>
+                                        <p><strong>Standard:</strong> 109 (33%)</p>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="stat-bar" style="width: 20%"></div>
+                                        <p><strong>Premium:</strong> 63 (19%)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-      <div class="complaint-group">
-        <h4>Employee Reports</h4>
-        <div class="complaint">Employer did not release payment</div>
-        <div class="complaint">Job description misleading</div>
-      </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Platform Activity</h2>
+                            </div>
+                            <div class="activity-summary">
+                                <div class="activity-item-admin">
+                                    <p class="activity-label">New User Registrations (Today)</p>
+                                    <p class="activity-number">42</p>
+                                </div>
+                                <div class="activity-item-admin">
+                                    <p class="activity-label">Job Posts Created</p>
+                                    <p class="activity-number">18</p>
+                                </div>
+                                <div class="activity-item-admin">
+                                    <p class="activity-label">Applications Submitted</p>
+                                    <p class="activity-number">156</p>
+                                </div>
+                                <div class="activity-item-admin">
+                                    <p class="activity-label">Verification Pending</p>
+                                    <p class="activity-number warning">12</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Admin Actions Log -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Recent Admin Actions</h2>
+                        </div>
+                        <div class="admin-log">
+                            <div class="log-item">
+                                <span class="log-time">02:14 PM</span>
+                                <span class="log-action">Approved employer verification for TechCorp Inc.</span>
+                                <span class="log-user">by Admin</span>
+                            </div>
+                            <div class="log-item">
+                                <span class="log-time">01:45 PM</span>
+                                <span class="log-action">Rejected job post: "Scam Position" - Reason: Policy Violation</span>
+                                <span class="log-user">by Admin</span>
+                            </div>
+                            <div class="log-item">
+                                <span class="log-time">01:22 PM</span>
+                                <span class="log-action">Suspended user account: user@example.com - Reason: Multiple reports</span>
+                                <span class="log-user">by Admin</span>
+                            </div>
+                            <div class="log-item">
+                                <span class="log-time">12:45 PM</span>
+                                <span class="log-action">Updated subscription plan rates for Premium tier</span>
+                                <span class="log-user">by Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. USER MANAGEMENT SECTION -->
+                <section id="users" class="section">
+                    <div class="section-header">
+                        <h2>User Management</h2>
+                        <button class="btn btn-primary">+ Add User</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="table-controls">
+                            <input type="text" placeholder="Search users..." class="search-input">
+                            <select class="filter-select">
+                                <option value="">All Roles</option>
+                                <option value="user">Regular Users</option>
+                                <option value="employer">Employers</option>
+                                <option value="admin">Admins</option>
+                            </select>
+                            <select class="filter-select">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="suspended">Suspended</option>
+                            </select>
+                        </div>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Join Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>john@example.com</td>
+                                    <td><span class="badge badge-user">Regular User</span></td>
+                                    <td>Jan 15, 2026</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">View</button>
+                                        <button class="btn btn-sm btn-primary">Promote</button>
+                                        <button class="btn btn-sm btn-danger">Suspend</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Mary Smith</td>
+                                    <td>mary@example.com</td>
+                                    <td><span class="badge badge-employer">Employer</span></td>
+                                    <td>Dec 20, 2025</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">View</button>
+                                        <button class="btn btn-sm btn-secondary">Downgrade</button>
+                                        <button class="btn btn-sm btn-danger">Suspend</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Robert Johnson</td>
+                                    <td>robert@example.com</td>
+                                    <td><span class="badge badge-user">Regular User</span></td>
+                                    <td>Nov 10, 2025</td>
+                                    <td><span class="status-badge suspended">Suspended</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">View</button>
+                                        <button class="btn btn-sm btn-primary">Promote</button>
+                                        <button class="btn btn-sm btn-success">Activate</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Amy Wilson</td>
+                                    <td>amy@example.com</td>
+                                    <td><span class="badge badge-employer">Employer</span></td>
+                                    <td>Oct 5, 2025</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">View</button>
+                                        <button class="btn btn-sm btn-secondary">Downgrade</button>
+                                        <button class="btn btn-sm btn-danger">Suspend</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 3. EMPLOYER MANAGEMENT SECTION -->
+                <section id="employers" class="section">
+                    <div class="section-header">
+                        <h2>Employer Management</h2>
+                        <div class="filter-badges">
+                            <button class="badge-filter active">All</button>
+                            <button class="badge-filter">Pending</button>
+                            <button class="badge-filter">Approved</button>
+                            <button class="badge-filter">Rejected</button>
+                        </div>
+                    </div>
+
+                    <div class="employers-grid">
+                        <!-- Employer Card 1 -->
+                        <div class="employer-card">
+                            <div class="employer-header">
+                                <div class="provider-info">
+                                    <div class="provider-logo" style="background: linear-gradient(135deg, #0d2959, #deb531); color: white; display: flex; align-items: center; justify-content: center;">TC</div>
+                                    <div>
+                                        <h3 class="provider-name">TechCorp Inc.</h3>
+                                        <p class="provider-contact">contact@techcorp.com</p>
+                                    </div>
+                                </div>
+                                <span class="verification-badge verified">✓ Verified</span>
+                            </div>
+
+                            <div class="employer-details">
+                                <p><strong>Plan:</strong> <span class="plan-badge premium">Premium</span></p>
+                                <p><strong>Joined:</strong> Dec 20, 2025</p>
+                                <p><strong>Active Jobs:</strong> 8</p>
+                                <p><strong>Total Applicants:</strong> 156</p>
+                            </div>
+
+                            <div class="employer-actions">
+                                <button class="btn btn-sm btn-secondary">View Profile</button>
+                                <button class="btn btn-sm btn-secondary">View Documents</button>
+                                <button class="btn btn-sm btn-primary">Change Plan</button>
+                            </div>
+                        </div>
+
+                        <!-- Employer Card 2 -->
+                        <div class="employer-card">
+                            <div class="employer-header">
+                                <div class="provider-info">
+                                    <div class="provider-logo" style="background: linear-gradient(135deg, #ffc107, #ff9800); color: white; display: flex; align-items: center; justify-content: center;">FS</div>
+                                    <div>
+                                        <h3 class="provider-name">Freelance Studio</h3>
+                                        <p class="provider-contact">hello@freestudio.com</p>
+                                    </div>
+                                </div>
+                                <span class="verification-badge pending">⏳ Pending</span>
+                            </div>
+
+                            <div class="employer-details">
+                                <p><strong>Plan:</strong> <span class="plan-badge standard">Standard</span></p>
+                                <p><strong>Joined:</strong> Jan 22, 2026</p>
+                                <p><strong>Active Jobs:</strong> 3</p>
+                                <p><strong>Total Applicants:</strong> 32</p>
+                            </div>
+
+                            <div class="employer-actions">
+                                <button class="btn btn-sm btn-secondary">View Profile</button>
+                                <button class="btn btn-sm btn-primary">Review Documents</button>
+                                <button class="btn btn-sm btn-success">Approve</button>
+                            </div>
+                        </div>
+
+                        <!-- Employer Card 3 -->
+                        <div class="employer-card">
+                            <div class="employer-header">
+                                <div class="provider-info">
+                                    <div class="provider-logo" style="background: linear-gradient(135deg, #dc3545, #c82333); color: white; display: flex; align-items: center; justify-content: center;">DS</div>
+                                    <div>
+                                        <h3 class="provider-name">Design Studio</h3>
+                                        <p class="provider-contact">info@designstudio.com</p>
+                                    </div>
+                                </div>
+                                <span class="verification-badge rejected">✗ Rejected</span>
+                            </div>
+
+                            <div class="employer-details">
+                                <p><strong>Plan:</strong> <span class="plan-badge free">Free</span></p>
+                                <p><strong>Joined:</strong> Jan 10, 2026</p>
+                                <p><strong>Active Jobs:</strong> 0</p>
+                                <p><strong>Rejection Reason:</strong> Invalid documentation</p>
+                            </div>
+
+                            <div class="employer-actions">
+                                <button class="btn btn-sm btn-secondary">View Profile</button>
+                                <button class="btn btn-sm btn-secondary">View Documents</button>
+                                <button class="btn btn-sm btn-primary">Re-review</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. JOB POST MANAGEMENT SECTION -->
+                <section id="jobs" class="section">
+                    <div class="section-header">
+                        <h2>Job Post Management</h2>
+                        <div class="filter-badges">
+                            <button class="badge-filter active">Pending</button>
+                            <button class="badge-filter">Active</button>
+                            <button class="badge-filter">Closed</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Job Title</th>
+                                    <th>Employer</th>
+                                    <th>Category</th>
+                                    <th>Posted Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Senior React Developer</td>
+                                    <td>TechCorp Inc.</td>
+                                    <td>Digital & Online</td>
+                                    <td>Feb 5, 2026</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">View</button>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Remove</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>UI/UX Designer</td>
+                                    <td>TechCorp Inc.</td>
+                                    <td>Creative Services</td>
+                                    <td>Feb 8, 2026</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">View</button>
+                                        <button class="btn btn-sm btn-success">Approve</button>
+                                        <button class="btn btn-sm btn-danger">Reject</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Content Writer</td>
+                                    <td>Freelance Studio</td>
+                                    <td>Business Support</td>
+                                    <td>Feb 2, 2026</td>
+                                    <td><span class="status-badge closed">Closed</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">View</button>
+                                        <button class="btn btn-sm btn-secondary">Archive</button>
+                                        <button class="btn btn-sm btn-danger">Remove</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Graphic Designer</td>
+                                    <td>Freelance Studio</td>
+                                    <td>Creative Services</td>
+                                    <td>Feb 7, 2026</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">View</button>
+                                        <button class="btn btn-sm btn-success">Approve</button>
+                                        <button class="btn btn-sm btn-danger">Reject</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 5. SUBSCRIPTION & PAYMENTS SECTION -->
+                <section id="payments" class="section">
+                    <div class="section-header">
+                        <h2>Subscription & Payments</h2>
+                    </div>
+
+                    <!-- Revenue Overview -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Revenue Overview</h2>
+                        </div>
+                        <div class="revenue-grid">
+                            <div class="revenue-item">
+                                <p class="revenue-label">Monthly Revenue</p>
+                                <p class="revenue-value">$8,450</p>
+                                <p class="revenue-change">↑ 12% vs last month</p>
+                            </div>
+                            <div class="revenue-item">
+                                <p class="revenue-label">Yearly Revenue</p>
+                                <p class="revenue-value">$89,450</p>
+                                <p class="revenue-change">↑ 35% vs last year</p>
+                            </div>
+                            <div class="revenue-item">
+                                <p class="revenue-label">Avg. Transaction</p>
+                                <p class="revenue-value">$271.94</p>
+                                <p class="revenue-change">Stable</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment History -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Recent Payments</h2>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Employer</th>
+                                    <th>Plan</th>
+                                    <th>Amount</th>
+                                    <th>Payment Method</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Feb 9, 2026</td>
+                                    <td>TechCorp Inc.</td>
+                                    <td>Premium</td>
+                                    <td>$99.00</td>
+                                    <td>Credit Card</td>
+                                    <td><span class="status-badge completed">Completed</span></td>
+                                    <td><a href="#" class="link">View Invoice</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 8, 2026</td>
+                                    <td>Freelance Studio</td>
+                                    <td>Standard</td>
+                                    <td>$49.00</td>
+                                    <td>PayPal</td>
+                                    <td><span class="status-badge completed">Completed</span></td>
+                                    <td><a href="#" class="link">View Invoice</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 7, 2026</td>
+                                    <td>Creative Agency</td>
+                                    <td>Premium</td>
+                                    <td>$99.00</td>
+                                    <td>Credit Card</td>
+                                    <td><span class="status-badge completed">Completed</span></td>
+                                    <td><a href="#" class="link">View Invoice</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Subscription Plans Management -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Manage Subscription Plans</h2>
+                        </div>
+                        <div class="plans-management">
+                            <div class="plan-row">
+                                <div class="plan-info">
+                                    <h4>Free Plan</h4>
+                                    <p>5 job postings/month, Limited messaging</p>
+                                </div>
+                                <div class="plan-price">
+                                    <p>Free</p>
+                                    <p class="users">142 active users</p>
+                                </div>
+                                <button class="btn btn-secondary">Edit Features</button>
+                            </div>
+
+                            <div class="plan-row">
+                                <div class="plan-info">
+                                    <h4>Standard Plan</h4>
+                                    <p>30 job postings/month, Full messaging</p>
+                                </div>
+                                <div class="plan-price">
+                                    <p>$49 <span>/month</span></p>
+                                    <p class="users">109 active users</p>
+                                </div>
+                                <button class="btn btn-secondary">Edit Features</button>
+                            </div>
+
+                            <div class="plan-row">
+                                <div class="plan-info">
+                                    <h4>Premium Plan</h4>
+                                    <p>Unlimited postings, Unlimited messaging, Analytics</p>
+                                </div>
+                                <div class="plan-price">
+                                    <p>$99 <span>/month</span></p>
+                                    <p class="users">63 active users</p>
+                                </div>
+                                <button class="btn btn-secondary">Edit Features</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. SYSTEM SETTINGS SECTION -->
+                <section id="settings" class="section">
+                    <div class="section-header">
+                        <h2>System Settings</h2>
+                    </div>
+
+                    <!-- Job Categories Management -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Job Categories</h2>
+                        </div>
+                        <div class="categories-list">
+                            <div class="category-item">
+                                <div class="category-info">
+                                    <h4>Digital & Online Tasks</h4>
+                                    <p>156 active jobs</p>
+                                </div>
+                                <button class="btn btn-sm btn-secondary">Edit</button>
+                                <button class="btn btn-sm btn-danger">Remove</button>
+                            </div>
+
+                            <div class="category-item">
+                                <div class="category-info">
+                                    <h4>Creative Services</h4>
+                                    <p>89 active jobs</p>
+                                </div>
+                                <button class="btn btn-sm btn-secondary">Edit</button>
+                                <button class="btn btn-sm btn-danger">Remove</button>
+                            </div>
+
+                            <div class="category-item">
+                                <div class="category-info">
+                                    <h4>Local Services</h4>
+                                    <p>234 active jobs</p>
+                                </div>
+                                <button class="btn btn-sm btn-secondary">Edit</button>
+                                <button class="btn btn-sm btn-danger">Remove</button>
+                            </div>
+
+                            <div class="category-item">
+                                <div class="category-info">
+                                    <h4>Lifestyle & Wellness</h4>
+                                    <p>45 active jobs</p>
+                                </div>
+                                <button class="btn btn-sm btn-secondary">Edit</button>
+                                <button class="btn btn-sm btn-danger">Remove</button>
+                            </div>
+
+                            <div class="category-item">
+                                <div class="category-info">
+                                    <h4>Business Support</h4>
+                                    <p>78 active jobs</p>
+                                </div>
+                                <button class="btn btn-sm btn-secondary">Edit</button>
+                                <button class="btn btn-sm btn-danger">Remove</button>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" style="margin-top: 15px;">+ Add New Category</button>
+                    </div>
+
+                    <!-- Platform Content Management -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Platform Content</h2>
+                        </div>
+                        <div class="content-items">
+                            <div class="content-item">
+                                <h4>Terms & Conditions</h4>
+                                <p class="content-desc">Last updated: Jan 15, 2026</p>
+                                <button class="btn btn-secondary btn-sm">Edit</button>
+                            </div>
+
+                            <div class="content-item">
+                                <h4>Privacy Policy</h4>
+                                <p class="content-desc">Last updated: Jan 15, 2026</p>
+                                <button class="btn btn-secondary btn-sm">Edit</button>
+                            </div>
+
+                            <div class="content-item">
+                                <h4>FAQ</h4>
+                                <p class="content-desc">Last updated: Feb 1, 2026</p>
+                                <button class="btn btn-secondary btn-sm">Edit</button>
+                            </div>
+
+                            <div class="content-item">
+                                <h4>Help Center</h4>
+                                <p class="content-desc">Last updated: Feb 5, 2026</p>
+                                <button class="btn btn-secondary btn-sm">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Notifications -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>System Configuration</h2>
+                        </div>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Enable User Registration
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Enable Employer Signups
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Require Email Verification
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox">
+                                    Enable Maintenance Mode
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="emailNotifications">Email Notifications Recipients</label>
+                                <input type="email" id="emailNotifications" placeholder="admin@example.com" value="admin@raketero.com">
+                            </div>
+
+                            <button class="btn btn-primary">Save Settings</button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
     </div>
 
-    <div class="trust-card">
-      <h3>Feedback & Ratings</h3>
-
-      <div class="rating-stars">
-        <span class="star" onclick="rate(1)">★</span>
-        <span class="star" onclick="rate(2)">★</span>
-        <span class="star" onclick="rate(3)">★</span>
-        <span class="star" onclick="rate(4)">★</span>
-        <span class="star" onclick="rate(5)">★</span>
-      </div>
-
-      <textarea placeholder="Write feedback..."></textarea>
-      <button class="submit-feedback">Submit</button>
-    </div>
-
-  </div>
-</section>
-
-      <section id="payments" class="section">
-        <h2>Transactions</h2>
-        <button onclick="exportCSV()">Export CSV</button>
-        <table>
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Amount</th>
-              <th>Status</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody id="paymentTable"></tbody>
-        </table>
-      </section>
-
-    </main>
-  </div>
+    <script src="admin-dashboard.js"></script>
 </body>
 </html>
