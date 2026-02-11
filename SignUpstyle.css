@@ -792,4 +792,42 @@
   letter-spacing: 0;
   line-height: normal;
   white-space: nowrap;
+
+}
+
+/* ===== INPUT STYLE ===== */
+.form-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 645px;
+  height: 91px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding-left: 90px;
+  font-size: 18px;
+  font-family: "Montserrat-SemiBold", Helvetica;
+  color: #000;
+}
+
+/* Remove default select style */
+select.form-input {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* REGISTER BUTTON */
+.register-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 181px;
+  height: 80px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Montserrat-SemiBold", Helvetica;
+  cursor: pointer;
 }
