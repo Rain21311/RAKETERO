@@ -243,18 +243,19 @@
 }
 
 .desktop .group-5 {
-  position: absolute;
+  position: fixed;      
   top: 0;
   left: 0;
-  width: 1450px;
+  width: 100%;         
   height: 107px;
+  z-index: 9999;       
 }
 
 .desktop .rectangle-3 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 1440px;
+  width: 100%;         
   height: 107px;
   background-color: #deb531;
 }
@@ -1343,3 +1344,4 @@
   width: 213px;
   height: 48px;
 }
+
