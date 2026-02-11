@@ -17,13 +17,11 @@ const flags = [
   "Inappropriate gig content"
 ];
 
-// Navigation
 function showSection(id) {
   document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 }
 
-// Load Users
 function loadUsers() {
   const table = document.getElementById("userTable");
   table.innerHTML = "";
@@ -55,7 +53,6 @@ function deleteUser(i) {
   loadUsers();
 }
 
-// Load Gigs
 function loadGigs() {
   const table = document.getElementById("gigTable");
   table.innerHTML = "";
@@ -75,7 +72,6 @@ function loadGigs() {
   document.getElementById("popularCategory").innerText = "Design";
 }
 
-// Payments
 function loadPayments() {
   const table = document.getElementById("paymentTable");
   table.innerHTML = "";
@@ -91,9 +87,10 @@ function loadPayments() {
   });
 }
 
-// Flags
 function loadFlags() {
   const list = document.getElementById("flagList");
+  if (!list) return;   // prevents error if element missing
+
   list.innerHTML = "";
 
   flags.forEach(f => {
@@ -101,7 +98,6 @@ function loadFlags() {
   });
 }
 
-// Export CSV
 function exportCSV() {
   let csv = "User,Amount,Status,Date\n";
 
@@ -118,23 +114,64 @@ function exportCSV() {
   a.click();
 }
 
-// Chart
 function loadChart() {
-  const ctx = document.getElementById("growthChart");
+  const ctx = document.getElementById("growthChart").getContext("2d");
 
   new Chart(ctx, {
     type: "line",
     data: {
-      labels: ["Week 1","Week 2","Week 3","Week 4"],
+      labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
       datasets: [{
         label: "User Growth",
-        data: [5, 10, 18, 30]
+        data: [5, 10, 18, 30],
+        borderColor: "#5aa2e6",
+        borderWidth: 2,
+        tension: 0.3,
+        fill: false,
+        pointRadius: 3,
+        pointBackgroundColor: "#5aa2e6"
       }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: "top",
+          align: "center",
+          labels: {
+            boxWidth: 40,
+            color: "#444",
+            font: {
+              size: 12,
+              weight: "normal"
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: {
+            color: "rgba(0,0,0,0.05)"
+          },
+          ticks: {
+            color: "#666"
+          }
+        },
+        y: {
+          beginAtZero: true,
+          grid: {
+            color: "rgba(0,0,0,0.05)"
+          },
+          ticks: {
+            color: "#666"
+          }
+        }
+      }
     }
   });
 }
 
-// Init
 window.onload = () => {
   loadUsers();
   loadGigs();
