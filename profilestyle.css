@@ -758,4 +758,48 @@
   font-family: "Montserrat-SemiBoldItalic", Helvetica;
   font-weight: 600;
   font-style: italic;
+
+}
+
+/* Back Button Styling */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  font-family: sans-serif;
+  font-weight: bold;
+  background: #f0f0f0;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background: #e0e0e0;
+}
+
+.back-button .arrow {
+  margin-right: 8px;
+}
+
+/* Edit Icon Styling */
+.edit-icon {
+  position: absolute;
+  top: 155px; /* Adjust based on where your JUAN DELA CRUZ text is */
+  left: 450px; 
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.edit-icon:hover {
+  transform: scale(1.1);
+}
+
+.edit-icon img {
+  width: 24px;
+  height: 24px;
 }
