@@ -86,11 +86,47 @@
         </table>
       </section>
 
-      <!-- Safety -->
-      <section id="safety" class="section">
-        <h2>Flagged Reports</h2>
-        <ul id="flagList"></ul>
-      </section>
+<section id="safety" class="section">
+  <h2>Trust & Safety</h2>
+
+  <div class="trust-grid">
+
+    <!-- Complaints -->
+    <div class="trust-card">
+      <h3>Complaints</h3>
+
+      <div class="complaint-group">
+        <h4>Employer Reports</h4>
+        <div class="complaint">Freelancer submitted late</div>
+        <div class="complaint">Low quality work delivered</div>
+      </div>
+
+      <div class="complaint-group">
+        <h4>Employee Reports</h4>
+        <div class="complaint">Employer did not release payment</div>
+        <div class="complaint">Job description misleading</div>
+      </div>
+    </div>
+
+    <!-- Feedback -->
+    <div class="trust-card">
+      <h3>Feedback & Ratings</h3>
+
+      <div class="rating-stars">
+        <span class="star" onclick="rate(1)">★</span>
+        <span class="star" onclick="rate(2)">★</span>
+        <span class="star" onclick="rate(3)">★</span>
+        <span class="star" onclick="rate(4)">★</span>
+        <span class="star" onclick="rate(5)">★</span>
+      </div>
+
+      <textarea placeholder="Write feedback..."></textarea>
+      <button class="submit-feedback">Submit</button>
+    </div>
+
+  </div>
+</section>
+
 
       <!-- Payments -->
       <section id="payments" class="section">
@@ -130,4 +166,3 @@
   </div>
 </body>
 </html>
-
