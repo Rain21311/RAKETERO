@@ -1,4 +1,3 @@
-// Mock Data
 const users = [
   {name: "Juan Dela Cruz", role: "Freelancer", status: "Active", verified: true},
   {name: "Maria Santos", role: "Employer", status: "Pending", verified: false}
@@ -145,3 +144,10 @@ window.onload = () => {
   document.getElementById("applications").innerText = 42;
 };
 
+function rate(n) {
+  const stars = document.querySelectorAll(".star");
+  stars.forEach((s, i) => {
+    if (i < n) s.classList.add("active");
+    else s.classList.remove("active");
+  });
+}
