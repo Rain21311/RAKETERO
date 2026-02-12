@@ -86,6 +86,19 @@
         <div class="text-wrapper-17">ABOUT ME</div>
         <div class="text-wrapper-18">WORK EXPERIENCE</div>
         <div class="text-wrapper-19">EDUCATION</div>
+       <div class="profile-container">
+          <img src="default-profile.jpg" id="profile-pic" class="profile-pic">
+        
+          <!-- Hidden file input -->
+          <input type="file" id="file-input" accept="image/*" style="display:none">
+        
+          <!-- Dropdown Menu -->
+          <div id="profile-menu" class="profile-menu">
+            <button onclick="openGallery()">Edit Photo</button>
+            <button onclick="viewPhoto()">View Photo</button>
+            <button onclick="removePhoto()">Remove Photo</button>
+          </div>
+      </div>
         <p class="lorem-ipsum-dolor">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />Praesent commodo cursus magna, vel scelerisque
           nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla.
@@ -111,4 +124,5 @@
   <script src="profile.js"></script>
 
 </html>
+
 
