@@ -1,7 +1,15 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 .jobs {
   background-color: #f8f7f6;
-  overflow: hidden;
+  overflow-x: hidden; /* Prevent horizontal scroll */
   width: 100%;
+  margin: 0;
+  padding: 0;
   min-width: 1440px;
   min-height: 4910px;
   position: relative;
@@ -11,7 +19,7 @@
   position: absolute;
   top: 107px;
   left: -2px;
-  width: 1442px;
+  width: 100%;
   height: 335px;
   border-radius: 0px 0px 25px 25px;
   background: linear-gradient(
@@ -28,18 +36,19 @@
 }
 
 .jobs .group {
-  position: absolute;
+  position: fixed; /* Changed from absolute to fixed */
   top: 0;
   left: 0;
-  width: 1450px;
+  width: 100%;    /* Ensures it spans the full screen width */
   height: 107px;
+  z-index: 1000;  /* Keeps the header above all other elements */
 }
 
 .jobs .div {
   position: absolute;
   top: 0;
   left: 0;
-  width: 1440px;
+  width: 100%; /* Changed from 1440px to 100% to fill any screen gaps */
   height: 107px;
   background-color: #deb531;
 }
@@ -296,7 +305,7 @@
   position: absolute;
   top: 4471px;
   left: 0;
-  width: 1442px;
+  width: 100%;
   height: 439px;
 }
 
@@ -304,7 +313,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 1440px;
+  width: 100%;
   height: 439px;
   background-color: #deb531;
 }
@@ -920,8 +929,3 @@
 .back-button:hover {
   text-decoration: underline;
 }
-
-
-
-
-
