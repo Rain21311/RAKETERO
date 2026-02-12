@@ -1,10 +1,9 @@
 <script>
 function performSearch() {
-  // 1. Kuhanin ang text mula sa search bar
-  const query = document.getElementById('jobSearchInput').value.toLowerCase();
+  // Kuhanin ang text mula sa search bar
+  const query = document.getElementById('jobSearchInput').value.toLowerCase().trim();
   
-  // 2. Kuhanin lahat ng job containers (lahat ng may class na group-6, group-8, etc.)
-  // Sa structure mo, ang mga job cards ay may class na 'JOB-loren-epsum'
+  // Kuhanin lahat ng job containers
   const jobCards = document.querySelectorAll('[class^="group-"]');
 
   if (query === "") {
@@ -19,16 +18,21 @@ function performSearch() {
     if (jobTitle) {
       const text = jobTitle.innerText.toLowerCase();
       
-      // 3. I-hide ang card kung hindi match, ipakita kung match
+      // I-hide ang card kung hindi match, ipakita kung match
       if (text.includes(query)) {
         card.style.display = "block";
+        card.style.visibility = "visible";
         found = true;
       } else {
         // Siguraduhin na hindi natin maitatago ang header o footer elements
-        if (card.classList.contains('group-5') || card.classList.contains('group') || card.classList.contains('group-4')) {
+        if (card.classList.contains('group-5') || 
+            card.classList.contains('group') || 
+            card.classList.contains('group-4')) {
           card.style.display = "block";
+          card.style.visibility = "visible";
         } else {
           card.style.display = "none";
+          card.style.visibility = "hidden";
         }
       }
     }
@@ -40,9 +44,58 @@ function performSearch() {
 }
 
 // Para gumana rin ang search kapag pinindot ang "Enter" key
-document.getElementById('jobSearchInput').addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    performSearch();
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('jobSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
   }
 });
 </script>
+
+<style>
+/* Ensure scrolling works properly */
+body, html {
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+
+/* Job cards container - allow horizontal scroll */
+.job-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling sa iOS */
+}
+
+/* Job card styling */
+[class^="group-"] {
+  flex-shrink: 0;
+  min-width: 280px; /* Prevent shrinking below this width */
+  margin: 10px;
+  transition: opacity 0.3s ease;
+}
+
+[class^="group-"]:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  [class^="group-"] {
+    min-width: 250px;
+  }
+  
+  body {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+</style>
