@@ -67,7 +67,7 @@
   top: 31px;
   left: 826px;
   width: 582px;
-  height: 482px;
+  height: 472px;
 }
 
 .desktop .div-wrapper {
@@ -392,7 +392,7 @@
 .desktop .group-8 {
   position: absolute;
   top: 909px;
-  left: 77px;
+  left: 8%;
   width: 1280px;
   height: 339px;
   display: flex;
@@ -1397,4 +1397,3 @@ html, body {
 .desktop .text-wrapper-24 { left: 900px !important; }
 .desktop .lifestyle-wellness { left: 290px !important; }
 .desktop .text-wrapper-25 { left: 690px !important; }
-
