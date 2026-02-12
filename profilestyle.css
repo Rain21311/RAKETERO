@@ -785,6 +785,46 @@
 .back-button .arrow {
   margin-right: 8px;
 }
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.profile-menu {
+  display: none;
+  position: absolute;
+  top: 130px;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-menu button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  border: none;
+  background: #f2f2f2;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.profile-menu button:hover {
+  background: #ddd;
+}
+
 
 /* Edit Icon Styling */
 .edit-icon {
@@ -803,3 +843,4 @@
   width: 24px;
   height: 24px;
 }
+
