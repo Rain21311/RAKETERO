@@ -1,3 +1,6 @@
+import { initializeAuth, authState, subscribeToAuthChanges, signOut } from './auth.js';
+import { createAuthModal, openAuthModal, closeAuthModal } from './auth-modal.js';
+
 const jobs = [
   {
     id: 1,
@@ -82,8 +85,17 @@ function renderJobs(jobsList = jobs) {
 function handleJobClick(jobId) {
   const job = jobs.find(j => j.id === jobId);
   if (job) {
-    console.log('Job selected:', job);
-    alert(`Opening job: ${job.title} at ${job.company}\n\nSalary: ${job.salary}\nLocation: ${job.location}`);
+    if (!authState.user) {
+      openAuthModal('signup');
+      return;
+    }
+
+    if (authState.profile?.role === 'employer') {
+      alert('Employers cannot apply for jobs');
+      return;
+    }
+
+    alert(`Applied to: ${job.title} at ${job.company}\n\nWe'll notify you when the employer responds.`);
   }
 }
 
@@ -121,6 +133,34 @@ function handleSearch(e) {
   }
 }
 
+function updateAuthUI() {
+  const authButtons = document.getElementById('auth-buttons');
+  if (!authButtons) return;
+
+  if (authState.user && authState.profile) {
+    authButtons.innerHTML = `
+      <div class="user-menu">
+        <span class="user-name">${authState.profile.full_name}</span>
+        <span class="user-role">${authState.profile.role === 'freelancer' ? 'Job Hunter' : 'Employer'}</span>
+        <button class="btn-logout" onclick="handleLogout()">Logout</button>
+      </div>
+    `;
+  } else {
+    authButtons.innerHTML = `
+      <button class="btn btn-primary" onclick="handleLoginClick()">Sign In</button>
+      <button class="btn btn-outline" onclick="handleSignUpClick()">Sign Up</button>
+    `;
+  }
+}
+
+window.handleLoginClick = () => openAuthModal('signin');
+window.handleSignUpClick = () => openAuthModal('signup');
+window.handleLogout = async () => {
+  await signOut();
+  updateAuthUI();
+  alert('You have been logged out');
+};
+
 function initializeApp() {
   const app = document.getElementById('app');
 
@@ -136,6 +176,7 @@ function initializeApp() {
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <div id="auth-buttons"></div>
       </nav>
     </header>
 
@@ -144,8 +185,8 @@ function initializeApp() {
         <h1>Find Your Dream Job</h1>
         <p>Discover thousands of opportunities from leading companies. Start your journey today.</p>
         <div class="hero-buttons">
-          <button class="btn btn-secondary">Browse Jobs</button>
-          <button class="btn btn-outline">Post a Job</button>
+          <button class="btn btn-secondary" onclick="handleSearchClick()">Browse Jobs</button>
+          <button class="btn btn-outline" onclick="handlePostJobClick()">Post a Job</button>
         </div>
       </div>
     </section>
@@ -239,7 +280,29 @@ function initializeApp() {
   `;
 
   app.innerHTML = html;
+  createAuthModal();
   renderJobs();
 }
 
-document.addEventListener('DOMContentLoaded', initializeApp);
+window.handleJobClick = handleJobClick;
+window.handleSearch = handleSearch;
+window.handleSearchClick = () => document.querySelector('.search-box')?.scrollIntoView({ behavior: 'smooth' });
+window.handlePostJobClick = () => {
+  if (!authState.user) {
+    openAuthModal('signup');
+  } else if (authState.profile?.role === 'freelancer') {
+    alert('Only employers can post jobs');
+  } else {
+    alert('Post job feature - Coming soon!');
+  }
+};
+
+subscribeToAuthChanges(() => {
+  updateAuthUI();
+});
+
+document.addEventListener('DOMContentLoaded', async () => {
+  initializeApp();
+  await initializeAuth();
+  updateAuthUI();
+});
