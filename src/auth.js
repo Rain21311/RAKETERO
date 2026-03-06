@@ -118,3 +118,41 @@ export async function signOut() {
     return { error: error.message };
   }
 }
+
+export async function updateProfile(updates) {
+  try {
+    if (!authState.user) throw new Error('Not authenticated');
+
+    const { error } = await supabase
+      .from('profiles')
+      .update(updates)
+      .eq('id', authState.user.id);
+
+    if (error) throw error;
+
+    authState.profile = { ...authState.profile, ...updates };
+    notifyListeners();
+    return { error: null };
+  } catch (error) {
+    return { error: error.message };
+  }
+}
+
+export async function updateProfile(updates) {
+  try {
+    if (!authState.user) throw new Error('Not authenticated');
+
+    const { error } = await supabase
+      .from('profiles')
+      .update(updates)
+      .eq('id', authState.user.id);
+
+    if (error) throw error;
+
+    authState.profile = { ...authState.profile, ...updates };
+    notifyListeners();
+    return { error: null };
+  } catch (error) {
+    return { error: error.message };
+  }
+}
